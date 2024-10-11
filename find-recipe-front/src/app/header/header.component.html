@@ -1,0 +1,60 @@
+<header>
+  <div class="header-container">
+
+    <div class="left-container">
+      <!-- Burger button -->
+      @if (isMobileView){
+        <div (click)="onBurgerClick()" class="burger-container">
+          @if (isOpen){
+            <img class="burger" src="../../../assets/burger-close.svg" alt="Close Menu" />
+          }@else{
+            <img class="burger" src="../../../assets/burger-button.svg" alt="Open Menu" />
+          }
+        </div>
+      }
+
+      <!-- Frigo -->
+      @if(!isMobileView){
+        <div class="header-buttons">
+          <a routerLink="/login" class="garde-manger">Mon garde manger</a>
+        </div>
+      }
+    </div>
+
+
+    <!-- Logo -->
+    <div class="logo">
+      <img [routerLink]="['/']" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
+    </div>
+
+
+    <div class="left-container">
+      <!-- Auth Buttons -->
+      @if(!isMobileView){
+        <div class="auth-buttons">
+          <a routerLink="/login" class="auth-btn">Connexion</a>
+          <div class="border"></div>
+          <a routerLink="/signup" class="auth-btn">Inscription</a>
+        </div>
+      }
+    </div>
+
+
+    <!-- Slide Menu -->
+    <aside class="slide" [class.open]="isOpen">
+      <div class="side-menu">
+        <div class="nav-button">
+          <img [routerLink]="['/']" (click)="onBurgerClick()" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
+          <a routerLink="/login" (click)="onBurgerClick()" class="garde-manger">Mon garde manger</a>
+          <div class="border"></div>
+          <a routerLink="/login" (click)="onBurgerClick()" class="auth-btn">A propros ...</a>
+          <div class="border"></div>
+          <a routerLink="/login" (click)="onBurgerClick()" class="auth-btn">Connexion</a>
+        </div>
+      </div>
+    </aside>
+
+  <!-- Overlay -->
+  <div class="overlay" [class.active]="isOpen" (click)="onBurgerClick()"></div>
+  </div>
+</header>

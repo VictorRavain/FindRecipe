@@ -1,0 +1,152 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1.6rem;
+    height: 4.5rem;
+
+    .left-container {
+      flex: 1 1 0%;
+
+      .burger-container {
+        cursor: pointer;
+        z-index: 10;
+  
+        .burger {
+          position: relative;
+          width: 2.5rem;  /* Adjust the size of the burger icon */
+          height: auto;
+          z-index: 10;
+        }
+      }
+
+      .header-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .garde-manger {
+          font-size: 1.1rem;
+          color: var(--color-foreground-primary);
+          text-decoration: none;
+        }
+      }
+      .auth-buttons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1vw;
+  
+        .auth-btn {
+          font-size: 1.1rem;
+          color: var(--color-foreground-primary);
+          text-decoration: none;
+          padding: 0px 1rem;
+        }
+  
+        .border {
+          border-left: 0.1rem dashed #ffc847;
+          margin: 0px 0.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      padding: 0px 2rem;
+
+      .logo-img{
+        height: 5rem;
+        cursor: pointer;
+      }
+    }
+
+
+    // Slide Menu
+    .slide {
+      height: 100%;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 0px;
+      z-index: 9;
+      overflow-x: hidden;
+      transition: width 0.5s ease;
+
+      .burger {
+        width: 2.5rem;  /* Adjust the size of the burger icon */
+        height: auto;
+      }
+
+      .side-menu {
+        max-width: 300px;
+        width: 100vw;
+        height: 100%;
+        background-color: var(--color-background-primary);
+        position: relative;
+
+        .nav-button {
+          padding: 3.8rem 3.2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+
+          .logo-img{
+            height: 5rem;
+            cursor: pointer;
+            padding: 2rem;
+          }
+  
+          .garde-manger {
+            font-size: 1.1rem;
+            color: var(--color-foreground-primary);
+            text-decoration: none;
+            padding: 2rem 0;
+          }
+
+          .auth-btn {
+            font-size: 1.1rem;
+            color: var(--color-foreground-primary);
+            text-decoration: none;
+            padding: 2rem 0;
+          }
+
+          .border {
+            height: 0.1rem;
+            background: none;
+            border-top: 2px dashed #ffc847;
+            margin-bottom: 1.6rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+  
+    .slide.open {
+      width: 100vw;
+      max-width: 300px;
+    }
+  
+    // Overlay
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:  #434343; // Semi-transparent background
+      z-index: 8; // Lower than slide menu but higher than other content
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none; // Prevent interaction when hidden
+  
+      &.active {
+        opacity: 1;
+        pointer-events: auto; // Allow clicks when active
+      }
+    }
+  }
+  
