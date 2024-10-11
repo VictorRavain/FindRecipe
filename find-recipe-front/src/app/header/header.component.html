@@ -32,9 +32,9 @@
       <!-- Auth Buttons -->
       @if(!isMobileView){
         <div class="auth-buttons">
-          <a routerLink="/login" class="auth-btn">Connexion</a>
+          <button (click)="openLoginModal()" class="auth-btn">Connexion</button>
           <div class="border"></div>
-          <a routerLink="/signup" class="auth-btn">Inscription</a>
+          <button (click)="openSignupModal()" class="auth-btn">Inscription</button>
         </div>
       }
     </div>
@@ -47,14 +47,22 @@
           <img [routerLink]="['/']" (click)="onBurgerClick()" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
           <a routerLink="/login" (click)="onBurgerClick()" class="garde-manger">Mon garde manger</a>
           <div class="border"></div>
-          <a routerLink="/login" (click)="onBurgerClick()" class="auth-btn">A propros ...</a>
+          <a (click)="onBurgerClick()" class="auth-btn">A propros ...</a>
           <div class="border"></div>
-          <a routerLink="/login" (click)="onBurgerClick()" class="auth-btn">Connexion</a>
+          <button (click)="openSignupModal(); onBurgerClick()" class="auth-btn">Inscription</button>
         </div>
       </div>
     </aside>
 
-  <!-- Overlay -->
-  <div class="overlay" [class.active]="isOpen" (click)="onBurgerClick()"></div>
+    <!-- Overlay -->
+    <div class="overlay" [class.active]="isOpen" (click)="onBurgerClick()"></div>
+
+    <!-- Modale -->
+     @if (isLoginModalOpen){
+      <app-login (close)="closeModal()" (switchToSignup)="openSignupModal()"></app-login>
+     } 
+     @if(isSignupModalOpen){
+      <app-inscription (close)="closeModal()" (switchToLogin)="openLoginModal()"></app-inscription>
+      }
   </div>
 </header>

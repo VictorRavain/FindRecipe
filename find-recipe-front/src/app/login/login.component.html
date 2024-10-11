@@ -1,15 +1,20 @@
-<div class="login-container">
-  <form class="login-form">
-    <h3 class="connexion">Se connecter</h3>
+<div class="modal-overlay" (click)="closeModal()"></div>
+
+<div class="modal-container">
+  <form [formGroup]="loginForm" class="connexion-form" (submit)="login()">
+    <h3>Se connecter</h3>
     <input formControlName="email" placeholder="Email" type="email" />
-      <input
-        formControlName="password"
-        placeholder="Mot de passe"
-        type="password"
-      />
-    <button type="submit" class="btn-1">
-      <h3>Login</h3>
-    </button>
+    <input
+      formControlName="password"
+      placeholder="Mot de passe"
+      type="password"
+    />
+    <button type="submit" class="btn-1">Connexion</button>
+    <div class="ou-ligne">
+      <div class="ligne"></div>
+      <p>ou</p>
+      <div class="ligne"></div>
+    </div>
+    <button (click)="switchSignup()">S'inscrire</button>
   </form>
 </div>
-  
