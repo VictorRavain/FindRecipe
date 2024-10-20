@@ -1,5 +1,5 @@
 <header>
-  <div class="header-container">
+  <div class="header-container" [class.active]="isMobileView">
 
     <div class="left-container">
       <!-- Burger button -->
@@ -24,7 +24,7 @@
 
     <!-- Logo -->
     <div class="logo">
-      <img [routerLink]="['/']" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
+      <img [routerLink]="['/']" routerLinkActive="router-link-active" src="../../assets/home_logo2.png" [class.active]="isMobileView" alt="Logo" class="logo-img" />
     </div>
 
 

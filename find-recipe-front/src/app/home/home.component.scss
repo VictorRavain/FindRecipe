@@ -1,44 +1,116 @@
-.home {
-    padding: 2rem;
-    background-color: #ffffff;
+.header-container {
+  background: var(--color-background-primary);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  margin-top: 64px;
+
+  &.active {
+    margin-top: 72px;
   }
-  
-  .search-container {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-  }
-  
-  button {
-    padding: 0.5rem 1rem;
-    background-color: #4b6c92; /* Couleur du bouton inspirée de Jow */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #c62e3b; /* Couleur au survol inspirée de Jow */
-  }
-  
-  .recipe-list {
+
+  .header {
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
+
+    .title {
+      font-family: 'Viksjow', sans-serif;
+      font-size: 2.25em;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .text {
+      padding-top: 1.2rem;
+      text-align: center;
+      font-size: 1.25em;
+    }
   }
+
+  .body {
+    margin: 2vh 4vw;
+    display: flex;
+    height: 4.65rem;
+
+    .button-container {
+      position: relative;
+      fill: white;
+      background: none rgb(244, 72, 49);
+      border-radius: 2.8rem 0px 0px 2.8rem;
+
+      .button{
+        background:local;
+        padding: 0px 1.6rem;
+        font: 500 1.5rem 'Surt', sans-serif;
+        color: rgb(255, 255, 255);
+        height: 100%;
+        width: 172px;
+        display: flex;
+        justify-content: space-between;
+
+        &.active {
+          color: black;
+        }
+
+        .arrow-button {
+          margin-left: 10px;
+          width: 16px;
+          height: 16px;
+        }
+
+      }
+
+      .select-menu {
+        list-style: none;
+        font: 500 1.5rem "Surt", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 0px 0px 2.8rem 2.8rem;
+        height: 100%;
+
+        .inner-menu {
+
+          .select-button {
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+          }
+        }
+      }
+      &.active {
+        border-radius: 2.8rem 0px 0px 0px;
+        background-color: white;
+        color: black; 
+        fill: black;
+      }
   
-  .recipe {
-    padding: 1rem;
-    border: 1px solid #eee;
-    border-radius: 4px;
+    }
+
+
+    .search-container {
+      width: 100%;
+
+      .search-bar {
+        cursor: text;
+        font: 500 1.5rem 'Surt', sans-serif;
+        width: 90%;
+        background: var(--color-background-secondary);
+        outline: none; 
+        color: var(--color-foreground-primary);
+        height: 100%;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        border-radius: 0px 2.8rem 2.8rem 0px;
+
+      &.active {
+        border-radius: 2.8rem;
+      }
+    }
+    }
   }
-  
+}

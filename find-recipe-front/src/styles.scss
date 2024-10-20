@@ -12,9 +12,37 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Viksjow';
+  src: url('./assets/fonts/Viksjow-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
+  --color-foreground-primary: #1e1e1e;
+  --color-foreground-secondary: #434343;
+  --color-foreground-tertiary: #E9E9E9;
   --color-background-primary: #fdf4e7;
+  --color-background-secondary: #ffffff;
+  --color-background-tertiary: #f4c890;
+  --color-overlay: rgba(30, 30, 30, 0.4);
   --color-brand-primary: #f44831;
+  --color-brand-cobalt: #0064d1;
+  --color-brand-yolk: #ffc847;
+  --color-brand-radish: #fcb2b0;
+  --color-brand-powder: #c6eaf6;
+  --color-brand-kale: #075526;
+  --color-brand-beet: #9d1716;
+  --color-default-white: #ffffff;
+  --color-default-black: #1e1e1e;
+  --color-state-focus-outline: #0064d1;
+  --color-state-disabled-color: #a5a5a5;
+  --color-state-disabled-background: #E9E9E9;
+  --color-semantic-error: #f44831;
+  --color-semantic-success: #00A840;
+  --color-semantic-warning: #ffc847;
+  --color-semantic-information: #0064d1;
 }
 
 * {
@@ -28,9 +56,24 @@
     background-color: #fdf4e7; /* Replace with your desired color */
   }
 
-  header {
-    background-color: #fdf4e7; /* Same background color as the body */
+  /* Set a base font size relative to the viewport width */
+  html {
+  font-size: 1vw; /* 1% of the viewport width */
   }
+
+  /* You can also set a minimum and maximum font size to prevent extreme scaling */
+  @media (min-width: 320px) {
+  html {
+    font-size: 12px; /* Minimum size for smaller screens */
+  }
+  }
+
+  @media (min-width: 1440px) {
+  html {
+    font-size: 18px; /* Maximum size for larger screens */
+  }
+  }
+
   
   h1,
   h2,
