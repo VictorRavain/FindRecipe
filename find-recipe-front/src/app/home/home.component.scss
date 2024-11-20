@@ -1,0 +1,116 @@
+.header-container {
+  background: var(--color-background-primary);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  margin-top: 64px;
+
+  &.active {
+    margin-top: 72px;
+  }
+
+  .header {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-family: 'Viksjow', sans-serif;
+      font-size: 2.25em;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .text {
+      padding-top: 1.2rem;
+      text-align: center;
+      font-size: 1.25em;
+    }
+  }
+
+  .body {
+    margin: 2vh 4vw;
+    display: flex;
+    height: 4.65rem;
+
+    .button-container {
+      position: relative;
+      fill: white;
+      background: none rgb(244, 72, 49);
+      border-radius: 2.8rem 0px 0px 2.8rem;
+
+      .button{
+        background:local;
+        padding: 0px 1.6rem;
+        font: 500 1.5rem 'Surt', sans-serif;
+        color: rgb(255, 255, 255);
+        height: 100%;
+        width: 172px;
+        display: flex;
+        justify-content: space-between;
+
+        &.active {
+          color: black;
+        }
+
+        .arrow-button {
+          margin-left: 10px;
+          width: 16px;
+          height: 16px;
+        }
+
+      }
+
+      .select-menu {
+        list-style: none;
+        font: 500 1.5rem "Surt", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 0px 0px 2.8rem 2.8rem;
+        height: 100%;
+
+        .inner-menu {
+
+          .select-button {
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+          }
+        }
+      }
+      &.active {
+        border-radius: 2.8rem 0px 0px 0px;
+        background-color: white;
+        color: black; 
+        fill: black;
+      }
+  
+    }
+
+
+    .search-container {
+      width: 100%;
+
+      .search-bar {
+        cursor: text;
+        font: 500 1.5rem 'Surt', sans-serif;
+        width: 90%;
+        background: var(--color-background-secondary);
+        outline: none; 
+        color: var(--color-foreground-primary);
+        height: 100%;
+        padding-left: 1.6rem;
+        padding-right: 1.6rem;
+        border-radius: 0px 2.8rem 2.8rem 0px;
+
+      &.active {
+        border-radius: 2.8rem;
+      }
+    }
+    }
+  }
+}

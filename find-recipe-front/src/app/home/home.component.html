@@ -1,0 +1,47 @@
+<header class="header-container" [class.active]="isMobileView">
+    @if(selectedOption == 'Ingrédients'){
+        <div class="header">
+            <div>
+                <h1 class="title">Vous avez les ingrédients, nous avons les recettes !</h1>
+            </div>
+            <div class="text">
+                <p>Précisez les ingrédients dont vous disposez et trouvez les meilleures recettes à réaliser</p>
+            </div>
+        </div>
+    }
+    @if(selectedOption == 'Recettes'){
+        <div class="header">
+            <div>
+                <h1 class="title">Passer en cuisine </h1>
+            </div>
+            <div class="text">
+                <p>Retrouvez toutes nos recettes ici !</p>
+            </div>
+        </div>
+    }
+    <div class="body">  
+        @if(!isMobileView){
+            <div class="button-container" [class.active]="isDropdownOpen">
+                <button class="button" [class.active]="isDropdownOpen" (click)="toggleDropdown()">
+                    <span>{{ selectedOption }}</span>
+                    <!-- SVG arrow icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="arrow-button" clip-rule="evenodd">
+                      <path d="M8 11l-6-6h12z"/>
+                    </svg>
+                </button>
+              
+                <!-- Dropdown menu -->
+                @if (isDropdownOpen) {
+                    <ul class="select-menu">
+                        <li class="inner-menu">
+                            <a class="select-button" (click)="selectOption(alternativeOption)">{{ alternativeOption }}</a>
+                        </li>
+                    </ul>
+                }
+            </div>
+        }
+        <div class="search-container">
+            <input [class.active]="isMobileView" type="text" [placeholder]="placeholder" autofocus="" autocomplete="off" class="search-bar" value="">
+        </div>
+    </div>
+</header>

@@ -1,0 +1,68 @@
+<header>
+  <div class="header-container" [class.active]="isMobileView">
+
+    <div class="left-container">
+      <!-- Burger button -->
+      @if (isMobileView){
+        <div (click)="onBurgerClick()" class="burger-container">
+          @if (isOpen){
+            <img class="burger" src="../../../assets/burger-close.svg" alt="Close Menu" />
+          }@else{
+            <img class="burger" src="../../../assets/burger-button.svg" alt="Open Menu" />
+          }
+        </div>
+      }
+
+      <!-- Frigo -->
+      @if(!isMobileView){
+        <div class="header-buttons">
+          <a routerLink="/login" class="garde-manger">Mon garde manger</a>
+        </div>
+      }
+    </div>
+
+
+    <!-- Logo -->
+    <div class="logo">
+      <img [routerLink]="['/']" routerLinkActive="router-link-active" src="../../assets/home_logo2.png" [class.active]="isMobileView" alt="Logo" class="logo-img" />
+    </div>
+
+
+    <div class="left-container">
+      <!-- Auth Buttons -->
+      @if(!isMobileView){
+        <div class="auth-buttons">
+          <button (click)="openLoginModal()" class="auth-btn">Connexion</button>
+          <div class="border"></div>
+          <button (click)="openSignupModal()" class="auth-btn">Inscription</button>
+        </div>
+      }
+    </div>
+
+
+    <!-- Slide Menu -->
+    <aside class="slide" [class.open]="isOpen">
+      <div class="side-menu">
+        <div class="nav-button">
+          <img [routerLink]="['/']" (click)="onBurgerClick()" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
+          <a routerLink="/login" (click)="onBurgerClick()" class="garde-manger">Mon garde manger</a>
+          <div class="border"></div>
+          <a (click)="onBurgerClick()" class="auth-btn">A propros ...</a>
+          <div class="border"></div>
+          <button (click)="openSignupModal(); onBurgerClick()" class="auth-btn">Inscription</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Overlay -->
+    <div class="overlay" [class.active]="isOpen" (click)="onBurgerClick()"></div>
+
+    <!-- Modale -->
+     @if (isLoginModalOpen){
+      <app-login (close)="closeModal()" (switchToSignup)="openSignupModal()"></app-login>
+     } 
+     @if(isSignupModalOpen){
+      <app-inscription (close)="closeModal()" (switchToLogin)="openLoginModal()"></app-inscription>
+      }
+  </div>
+</header>
