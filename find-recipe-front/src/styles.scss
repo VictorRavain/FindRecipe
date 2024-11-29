@@ -58,22 +58,8 @@
 
   /* Set a base font size relative to the viewport width */
   html {
-  font-size: 1vw; /* 1% of the viewport width */
+  font-size: 1rem; /* 1% of the viewport width */
   }
-
-  /* You can also set a minimum and maximum font size to prevent extreme scaling */
-  @media (min-width: 320px) {
-  html {
-    font-size: 12px; /* Minimum size for smaller screens */
-  }
-  }
-
-  @media (min-width: 1440px) {
-  html {
-    font-size: 18px; /* Maximum size for larger screens */
-  }
-  }
-
   
   h1,
   h2,
@@ -123,8 +109,8 @@
   }
   
   .loader {
-    border: 4px solid #f3f3f3; /* Light gray */
-    border-top: 4px solid  #f44831; /* Blue */
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid  #f44831;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -142,10 +128,9 @@
   
   .warning-box {
     display: flex;
-    flex-direction: column;
     border-radius: 10px;
-    width: 20%;
-    padding: 1rem;
+    padding: 0.75rem;
+    font-size: 14px;
     color: white;
   
     &.succes {

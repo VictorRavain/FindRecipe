@@ -2,6 +2,8 @@ import { Component, HostListener  } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { loginComponent } from '../login/login.component';
 import { InscriptionComponent } from '../inscription/inscription.component';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,14 @@ import { InscriptionComponent } from '../inscription/inscription.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  constructor(
+    public authService: AuthService, 
+    private router: Router
+  ) {
+    this.checkWindowWidth(); // Check initial window width
+  } 
+
   isOpen: boolean = false;  // Controls whether the burger menu is open
   isMobileView: boolean = false;  // Controls when to show the burger icon
   isLoginModalOpen = false; 
@@ -31,8 +41,10 @@ export class HeaderComponent {
     this.isSignupModalOpen = false;
   }
 
-  constructor() {
-    this.checkWindowWidth(); // Check initial window width
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+    window.location.reload();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -43,6 +55,15 @@ export class HeaderComponent {
   // Function to toggle the burger menu
   onBurgerClick() {
     this.isOpen = !this.isOpen;
+  }
+
+  goToIngredients() {
+    if(this.authService.isAuthenticated()){
+      this.router.navigate(['/ingredients']);
+    }
+    else {
+      this.openLoginModal()
+    }
   }
 
   // Function to check window width and determine mobile view

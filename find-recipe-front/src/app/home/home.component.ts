@@ -14,6 +14,10 @@ export class HomeComponent {
   isDropdownOpen: boolean = false;
   placeholder: string = "Ajoutez un ingrédient";
 
+  constructor() {
+    this.checkWindowWidth(); // Check initial window width
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.checkWindowWidth(); // Update on window resize
