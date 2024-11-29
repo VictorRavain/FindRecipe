@@ -1,49 +1,119 @@
 <header class="header-container" [class.active]="isMobileView">
-<div class="main-div">
-    @if(selectedOption == 'Ingrédients'){
-        <div class="header">
-            <div>
-                <h1 class="title">Vous avez les ingrédients, nous avons les recettes !</h1>
-            </div>
-            <div class="text">
-                <p>Précisez les ingrédients dont vous disposez et trouvez les meilleures recettes à réaliser</p>
-            </div>
-        </div>
-    }
-    @if(selectedOption == 'Recettes'){
-        <div class="header">
-            <div>
-                <h1 class="title">Passer en cuisine </h1>
-            </div>
-            <div class="text">
-                <p>Retrouvez toutes nos recettes ici !</p>
-            </div>
-        </div>
-    }
-    <div class="body">  
-        @if(!isMobileView){
-            <div class="button-container" [class.active]="isDropdownOpen">
-                <button class="button" [class.active]="isDropdownOpen" (click)="toggleDropdown()">
-                    <span>{{ selectedOption }}</span>
-                    <!-- SVG arrow icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="arrow-button" clip-rule="evenodd">
-                      <path d="M8 11l-6-6h12z"/>
-                    </svg>
-                </button>
-              
-                <!-- Dropdown menu -->
-                @if (isDropdownOpen) {
-                    <ul class="select-menu">
-                        <li class="inner-menu">
-                            <a class="select-button" (click)="selectOption(alternativeOption)">{{ alternativeOption }}</a>
-                        </li>
-                    </ul>
-                }
+    <div class="main-div">
+        @if(selectedOption == 'Ingrédients'){
+            <div class="header">
+                <div>
+                    <h1 class="title">Vous avez les ingrédients, nous avons les recettes !</h1>
+                </div>
+                <div class="text">
+                    <p>Précisez les ingrédients dont vous disposez et trouvez les meilleures recettes à réaliser</p>
+                </div>
             </div>
         }
-        <div class="search-container">
-            <input [class.active]="isMobileView" type="text" [placeholder]="placeholder" autofocus="" autocomplete="off" class="search-bar" value="">
+        @if(selectedOption == 'Recettes'){
+            <div class="header">
+                <div>
+                    <h1 class="title">Passer en cuisine </h1>
+                </div>
+                <div class="text">
+                    <p>Retrouvez toutes nos recettes ici !</p>
+                </div>
+            </div>
+        }
+        <div class="body">  
+            @if(!isMobileView){
+                <div class="button-container" [class.active]="isDropdownOpen">
+                    <button class="button" [class.active]="isDropdownOpen" (click)="toggleDropdown()">
+                        <span>{{ selectedOption }}</span>
+                        <!-- SVG arrow icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="arrow-button" clip-rule="evenodd">
+                        <path d="M8 11l-6-6h12z"/>
+                        </svg>
+                    </button>
+                
+                    <!-- Dropdown menu -->
+                    @if (isDropdownOpen) {
+                        <ul class="select-menu">
+                            <li class="inner-menu">
+                                <a class="select-button" (click)="selectOption(alternativeOption)">{{ alternativeOption }}</a>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            }
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input
+                [class.active]="isMobileView"
+                [class.active2]="filteredIngredients"
+                type="text"
+                placeholder="Search for ingredients..."
+                [(ngModel)]="searchQuery"
+                (input)="filterIngredients()"
+                autofocus
+                autocomplete="off"
+                class="search-bar"
+                />
+
+                <!-- Filtered Ingredients List -->
+                <ul class="filtered-ingredients">
+                    <li
+                    class="ingredient-item"
+                    *ngFor="let ingredient of filteredIngredients"
+                    (click)="selectIngredient(ingredient)"
+                    >
+                    <span>{{ ingredient.name }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+
+
+    <!-- Selected Ingredients Display -->
+    <div class="ingredient-grid">
+        <div
+        class="ingredient-card"
+        *ngFor="let ingredient of selectedIngredients"
+        >
+        <img
+            class="ingredient-image"
+            [src]="'assets/default-ingredient.png'"
+            alt="{{ ingredient.name }}"
+        />
+        <div class="ingredient-details">
+            <p class="ingredient-name">{{ ingredient.name }}</p>
+        </div>
+        <button
+            class="delete-button"
+            (click)="removeIngredient(ingredient)"
+        >
+            ✕
+        </button>
+        </div>
+    </div>
+
+     <!-- Display Recipes -->
+    <div *ngIf="filteredRecipes.length > 0" class="recipes-section">
+        <h2>Voici ce que vous pouvez faire en ajoutant quelques ingrédients :</h2>
+        <div class="recipe-cards">
+        <div class="recipe-card" *ngFor="let recipe of filteredRecipes">
+            <img
+                class="recipe-image"
+                [src]="'assets/default-ingredient.png'"
+                alt="{{ recipe.name }}"
+            />
+            <p>{{ recipe.name }}</p>
+            <div class="inner-div">
+                <a [routerLink]="['/recipe', recipe.id]" class="view-recipe-btn">Voir la recette</a>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="jow_prod__sc-d1d7fdb0-0 ljwnNe jow_prod__sc-1f31b3ae-0 igHNun jow_prod__sc-77b0e654-3 iaSjal" width="24" height="24" focusable="false" role="img" aria-hidden="true" aria-label="heart-stroke-24" aria-labelledby="heart-stroke-24"><path fill-rule="evenodd" d="M4.49 8.677c-.139 1.062.112 2.379 1.055 3.835 2.358 3.644 4.934 5.92 6.149 6.88.19.15.433.152.623.006 1.239-.953 3.864-3.227 6.121-6.874l.01-.014c.947-1.456 1.2-2.773 1.062-3.834-.138-1.064-.677-1.929-1.418-2.487-1.451-1.093-3.79-1.072-5.506 1.35a.72.72 0 0 1-.589.307.72.72 0 0 1-.588-.308c-1.714-2.42-4.05-2.442-5.5-1.349-.74.558-1.278 1.423-1.418 2.488m7.508-2.751c-2.132-2.347-5.002-2.409-6.95-.94C3.999 5.777 3.244 7 3.05 8.476c-.194 1.48.18 3.156 1.284 4.861 2.47 3.818 5.172 6.21 6.473 7.238a1.92 1.92 0 0 0 2.383.017c1.33-1.022 4.093-3.42 6.473-7.26 1.106-1.703 1.482-3.377 1.29-4.855-.192-1.477-.947-2.7-1.999-3.493-1.948-1.468-4.822-1.406-6.955.94" clip-rule="evenodd"></path></svg>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- No Recipes Found -->
+    <div *ngIf="filteredRecipes.length === 0" class="no-recipes">
+        <p>Ajoutez plus d'ingrédients pour trouver des recettes</p>
+    </div>
 </header>

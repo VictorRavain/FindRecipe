@@ -6,16 +6,13 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class IngredientsService {
-  private apiUrl = `${environment.apiUrl}/ingredients`;
+export class RecipeService {
+  private apiUrl = `${environment.apiUrl}/recette`;
 
   constructor(private http: HttpClient) {}
 
-  getIngredients(): Observable<any[]> {
+  // Fetch recipes by selected ingredients
+  getRecipes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
-  }
-
-  deleteIngredient(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/ingredients/${id}`);
   }
 }

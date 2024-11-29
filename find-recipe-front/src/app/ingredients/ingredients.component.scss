@@ -1,8 +1,116 @@
-.header-container {
-    background: var(--color-background-primary);
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    padding: 64px 2.4rem 0px;
+.ingredients-container {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+padding: 0.6rem;
+margin: 72px auto;
+max-width: 1024px;
+
+&.active {
+    margin: 84px auto;
+}
+
+
+.loading,
+.no-ingredients {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+// Category section
+.category-section {
+    margin-bottom: 3rem;
+
+    .category-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    }
+
+    // Ingredients grid
+    .ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    }
+
+    // Individual ingredient card
+    .ingredient-card {
+        position: relative; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+            .delete-button {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+    .delete-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff6b6b;
+        border: none;
+        color: #ffffff;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s, opacity 0.2s;
+        opacity: 0;
+        visibility: hidden; /* Hidden by default */
+
+        &.active {
+            opacity: 1;
+            visibility: visible; /* Hidden by default */
+        }
+    }
+
+    .delete-button:hover {
+        background: #e63946;
+    }
+
+    .ingredient-image {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        border: 2px solid #ced4da;
+    }
+
+    .ingredient-details {
+        text-align: center;
+
+        .ingredient-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #212529;
+        margin-bottom: 0.5rem;
+        }
+
+        .ingredient-quantity {
+        font-size: 1rem;
+        color: #6c757d;
+        }
+    }
+    }
+}
 }

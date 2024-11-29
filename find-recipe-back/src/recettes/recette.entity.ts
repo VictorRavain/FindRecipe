@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
 import { Categorie } from '../categories/categorie.entity';
-import { RecetteIngredient } from '../recette-ingredients/recette-ingredient.entity';
+import { Ingredient } from 'src/ingredients/ingredient.entity';
 
 @Entity()
 export class Recette {
@@ -8,7 +8,7 @@ export class Recette {
   id: number;
 
   @Column()
-  nom: string;
+  name: string;
 
   @Column('text')
   description: string;
@@ -22,9 +22,10 @@ export class Recette {
   @Column()
   temps_cuisson: number;
 
-  @ManyToOne(() => Categorie, (categorie) => categorie.recettes)
+  @ManyToOne(() => Categorie, (categorie) => categorie.recettes, { eager: true })
   categorie: Categorie;
 
-  @OneToMany(() => RecetteIngredient, (recetteIngredient) => recetteIngredient.recette)
-  ingredients: RecetteIngredient[];
+  @ManyToMany(() => Ingredient, { cascade: true, eager: true })
+  @JoinTable()
+  ingredients: Ingredient[];
 }

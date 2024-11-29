@@ -1,0 +1,334 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Dessert"
+        },
+        {
+            "id": 2,
+            "name": "Plat principal"
+        },
+        {
+            "id": 3,
+            "name": "Entrée"
+        },
+        {
+            "id": 4,
+            "name": "Petit déjeuner"
+        },
+        {
+            "id": 5,
+            "name": "Salade"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "Farine",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 2,
+            "name": "Oeuf",
+            "type": "Frais",
+            "quantité": 6,
+            "unité": "pièces"
+        },
+        {
+            "id": 3,
+            "name": "Lait",
+            "type": "Frais",
+            "quantité": 2000,
+            "unité": "ml"
+        },
+        {
+            "id": 4,
+            "name": "Sucre",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 5,
+            "name": "Beurre",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 6,
+            "name": "Sel",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "pincée"
+        },
+        {
+            "id": 7,
+            "name": "Tomates",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "pièces"
+        },
+        {
+            "id": 8,
+            "name": "Poulet",
+            "type": "Frais",
+            "quantité": 2,
+            "unité": "pièces"
+        },
+        {
+            "id": 9,
+            "name": "Riz",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 10,
+            "name": "Carottes",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 11,
+            "name": "Pomme de terre",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 12,
+            "name": "Oignon",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "pièces"
+        },
+        {
+            "id": 13,
+            "name": "Poivrons",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "pièces"
+        },
+        {
+            "id": 14,
+            "name": "Viande hachée",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 15,
+            "name": "Huile d'olive",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "ml"
+        },
+        {
+            "id": 16,
+            "name": "Fromage",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 17,
+            "name": "Pâtes",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 18,
+            "name": "Thon",
+            "type": "Conserve",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 19,
+            "name": "Chocolat",
+            "type": "Sec",
+            "quantité": 1000,
+            "unité": "g"
+        },
+        {
+            "id": 20,
+            "name": "Crème fraîche",
+            "type": "Frais",
+            "quantité": 1000,
+            "unité": "ml"
+        }
+    ],
+    "recettes": [
+        {
+            "id": 1,
+            "name": "Crêpes",
+            "description": "Délicieuses crêpes moelleuses",
+            "instructions": "1. Mélanger les ingrédients. 2. Cuire à feu doux.",
+            "temps_preparation": 10,
+            "temps_cuisson": 5,
+            "categorie": {
+                "id": 1,
+                "name": "Dessert"
+            },
+            "ingredients": [
+                {
+                    "id": 1,
+                    "name": "Farine",
+                    "quantité": 200,
+                    "unité": "g"
+                },
+                {
+                    "id": 2,
+                    "name": "Oeuf",
+                    "quantité": 3,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 3,
+                    "name": "Lait",
+                    "quantité": 500,
+                    "unité": "ml"
+                },
+                {
+                    "id": 4,
+                    "name": "Sucre",
+                    "quantité": 50,
+                    "unité": "g"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Omelette",
+            "description": "Omelette simple et rapide",
+            "instructions": "1. Battre les œufs. 2. Cuire à feu doux.",
+            "temps_preparation": 5,
+            "temps_cuisson": 10,
+            "categorie": {
+                "id": 4,
+                "name": "Petit déjeuner"
+            },
+            "ingredients": [
+                {
+                    "id": 2,
+                    "name": "Oeuf",
+                    "quantité": 4,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 5,
+                    "name": "Beurre",
+                    "quantité": 20,
+                    "unité": "g"
+                },
+                {
+                    "id": 6,
+                    "name": "Sel",
+                    "quantité": 1,
+                    "unité": "pincée"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Poulet rôti",
+            "description": "Poulet rôti savoureux",
+            "instructions": "1. Assaisonner le poulet. 2. Rôtir au four.",
+            "temps_preparation": 15,
+            "temps_cuisson": 60,
+            "categorie": {
+                "id": 2,
+                "name": "Plat principal"
+            },
+            "ingredients": [
+                {
+                    "id": 8,
+                    "name": "Poulet",
+                    "quantité": 1,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 6,
+                    "name": "Sel",
+                    "quantité": 1,
+                    "unité": "pincée"
+                },
+                {
+                    "id": 12,
+                    "name": "Oignon",
+                    "quantité": 2,
+                    "unité": "pièces"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Salade de riz",
+            "description": "Salade fraîche de riz",
+            "instructions": "1. Cuire le riz. 2. Mélanger avec les légumes.",
+            "temps_preparation": 20,
+            "temps_cuisson": 10,
+            "categorie": {
+                "id": 5,
+                "name": "Salade"
+            },
+            "ingredients": [
+                {
+                    "id": 9,
+                    "name": "Riz",
+                    "quantité": 200,
+                    "unité": "g"
+                },
+                {
+                    "id": 7,
+                    "name": "Tomates",
+                    "quantité": 3,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 18,
+                    "name": "Thon",
+                    "quantité": 1,
+                    "unité": "g"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Pâtes à la carbonara",
+            "description": "Pâtes crémeuses à la carbonara",
+            "instructions": "1. Cuire les pâtes. 2. Ajouter la sauce carbonara.",
+            "temps_preparation": 15,
+            "temps_cuisson": 10,
+            "categorie": {
+                "id": 2,
+                "name": "Plat principal"
+            },
+            "ingredients": [
+                {
+                    "id": 17,
+                    "name": "Pâtes",
+                    "quantité": 300,
+                    "unité": "g"
+                },
+                {
+                    "id": 16,
+                    "name": "Fromage",
+                    "quantité": 100,
+                    "unité": "g"
+                },
+                {
+                    "id": 20,
+                    "name": "Crème fraîche",
+                    "quantité": 200,
+                    "unité": "ml"
+                }
+            ]
+        }
+    ]
+}

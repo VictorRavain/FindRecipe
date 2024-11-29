@@ -24,7 +24,7 @@
 
     <!-- Logo -->
     <div class="logo">
-      <img [routerLink]="['/ingredients']" routerLinkActive="router-link-active" src="../../assets/home_logo2.png" [class.active]="isMobileView" alt="Logo" class="logo-img" />
+      <img [routerLink]="['/']" routerLinkActive="router-link-active" src="../../assets/home_logo2.png" [class.active]="isMobileView" alt="Logo" class="logo-img" />
     </div>
 
 
@@ -50,7 +50,7 @@
       <div class="side-menu">
         <div class="nav-button">
           <img [routerLink]="['/']" (click)="onBurgerClick()" routerLinkActive="router-link-active" src="../../assets/home_logo.png" alt="Logo" class="logo-img" />
-          <a routerLink="/login" (click)="onBurgerClick()" class="garde-manger">Mon garde manger</a>
+          <button (click)="onBurgerClick(); goToIngredients()" class="garde-manger">Mon garde manger</button>
           <div class="border"></div>
           @if(!authService.isAuthenticated()){
             <button (click)="openLoginModal()" class="auth-btn">Connexion</button>

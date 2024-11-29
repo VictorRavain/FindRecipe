@@ -2,11 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Recette } from './recettes/recette.entity';
 import { Ingredient } from './ingredients/ingredient.entity';
-import { RecetteIngredient } from './recette-ingredients/recette-ingredient.entity';
 import { Categorie } from './categories/categorie.entity';
 import { RecetteModule } from './recettes/recettes.module';
 import { IngredientsModule } from './ingredients/ingredients.module';
-import { RecetteIngredientsModule } from './recette-ingredients/recette-ingredients.module';
 import { CategoriesModule } from './categories/categories.module';
 import { SeedService } from './seed/seed.service';
 import { AppController } from './app.controller';
@@ -24,13 +22,12 @@ import { AuthModule } from './auth/auth.module';
       username: 'postgres',
       password: 'azerty',
       database: 'findrecipes',
-      entities: [Recette, Ingredient, RecetteIngredient, Categorie, User],
+      entities: [Recette, Ingredient, Categorie, User],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Recette, Ingredient, RecetteIngredient, Categorie]),
+    TypeOrmModule.forFeature([Recette, Ingredient, Categorie]),
     RecetteModule,
     IngredientsModule,
-    RecetteIngredientsModule,
     CategoriesModule,
     UsersModule,
     AuthModule,

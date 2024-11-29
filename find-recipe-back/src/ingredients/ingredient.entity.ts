@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { RecetteIngredient } from '../recette-ingredients/recette-ingredient.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
+import { Recette } from 'src/recettes/recette.entity';
 
 @Entity()
 export class Ingredient {
@@ -7,11 +7,17 @@ export class Ingredient {
   id: number;
 
   @Column()
-  nom: string;
+  name: string;
 
   @Column()
   type: string;
 
-  @OneToMany(() => RecetteIngredient, (recetteIngredient) => recetteIngredient.ingredient)
-  recettes: RecetteIngredient[];
+  @Column('float')
+  quantité: number;
+
+  @Column()
+  unité: string;
+
+  @ManyToMany(() => Recette, (recette) => recette.ingredients)
+  recettes: Recette[];
 }

@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 1.6rem;
+    padding: 0.5rem 1.6rem;
     height: 64px;
+    background-color: #fdf4e7;
 
     &.active {
       height: 72px;
@@ -26,7 +27,7 @@
 
       .header-buttons {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
 
         .garde-manger {
@@ -115,6 +116,7 @@
             font-size: 1.2rem;
             color: var(--color-foreground-primary);
             text-decoration: none;
+            background: none;
             padding: 2.5rem 0;
           }
 

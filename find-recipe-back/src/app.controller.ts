@@ -9,14 +9,14 @@ import { AppService } from './app.service';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService,     
-    @InjectRepository(Categorie)  private categorieRepository: Repository<Categorie>,
+    @InjectRepository(Categorie)  private CategorieRepository: Repository<Categorie>,
     @InjectRepository(Recette)  private RecetteRepository: Repository<Recette>,
     @InjectRepository(Ingredient)  private IngredientRepository: Repository<Ingredient>,
   ) {}
 
   @Get('/categories') // Define an endpoint to fetch categories
   async getCategories() {
-    return this.categorieRepository.find(); // Query all categories from the database
+    return this.CategorieRepository.find(); // Query all categories from the database
   }
 
   @Get('/recette') // Define an endpoint to fetch categories
