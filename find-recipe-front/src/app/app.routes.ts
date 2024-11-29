@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { loginComponent } from './login/login.component';
-import { signupComponent } from './signup/signup.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'login', component: loginComponent },
-    { path: 'signup', component: signupComponent },
+    { path: '', component: HomeComponent },
+    { path: 'ingredients', component: IngredientsComponent },
+    { path: '**', component: PageNotFoundComponent },
 ];

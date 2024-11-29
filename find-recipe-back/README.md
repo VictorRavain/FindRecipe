@@ -34,6 +34,11 @@ $ npm install
 
 ## Compile and run the project
 
+# lunch SQL database : 
+```bash
+$ psql -U postgres
+# mdp : azerty
+
 ```bash
 # development
 $ npm run start

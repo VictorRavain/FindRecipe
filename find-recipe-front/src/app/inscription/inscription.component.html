@@ -4,7 +4,7 @@
   @if (inscriptionError) {
     <div @slideFromTop class="warning-box error">
       <h3>Une erreur est survenue ...</h3>
-      <p>{{ inscriptionError.message }}</p>
+      <h3>{{ inscriptionError.message }}</h3>
     </div>
   }
   <form [formGroup]="inscriptionForm" class="inscription-form" (submit)="inscription()">
@@ -37,7 +37,7 @@
       @if (chargementEnCours) {
       <div class="loader"></div>
       } @else {
-      <h3>Inscription</h3>
+      Inscription
       }
     </button>
     <div class="ou-ligne">

@@ -1,0 +1,13 @@
+<header class="header-container">
+<div *ngIf="isLoading">
+    <p>Loading ingredients...</p>
+  </div>
+  <div *ngIf="!isLoading && ingredients.length === 0">
+    <p>No ingredients found.</p>
+  </div>
+  <ul *ngIf="!isLoading && ingredients.length > 0">
+    <li *ngFor="let ingredient of ingredients">
+      {{ ingredient.name }} - {{ ingredient.quantity }}
+    </li>
+  </ul>
+</header>

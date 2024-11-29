@@ -1,25 +1,18 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-// import { UserService } from '../services/user.service';
-// import { User } from '../types/user.interface';
-// import { catchError, EMPTY, Observable, tap} from 'rxjs';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { User } from '../types/user.interface';
+import { catchError, EMPTY, Observable, tap} from 'rxjs';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import { HttpErrorResponse } from '@angular/common/http';
-// import { InscriptionSuccess } from '../types/inscriptionSuccess.interface';
-// import { SuccessService } from '../services/success.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { InscriptionSuccess } from '../types/inscriptionSuccess.interface';
+import { SuccessService } from '../services/success.service';
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.scss',
 })
@@ -34,13 +27,13 @@ export class InscriptionComponent {
 
   public inscriptionError: Error | undefined;
 
-  // public allUsers: User[] = [];
+  public allUsers: User[] = [];
 
   constructor(
-    // private userService: UserService,
+    private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
-    // private successService: SuccessService
+    private successService: SuccessService
   ) {
     this.inscriptionForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -51,42 +44,42 @@ export class InscriptionComponent {
   }
 
   public isInvalidField(formControlName: string): boolean {
-    // const field = this.inscriptionForm.get(formControlName);
-    // return (field?.invalid && field?.touched) ?? true;
-    return false;
+    const field = this.inscriptionForm.get(formControlName);
+    return (field?.invalid && field?.touched) ?? true;
   }
 
   public inscription(): void {
-    // this.inscriptionForm.markAllAsTouched();
-    // if (this.inscriptionForm.valid) {
-    //   this.chargementEnCours = true;
-    //   this.userService
-    //     .createUser(this.inscriptionForm.value)
-    //     .pipe(
-    //       catchError((error: HttpErrorResponse) => {
-    //         this.inscriptionError = error.error;
-    //         this.chargementEnCours = false;
-    //         return EMPTY;
-    //       }),
-    //       tap((res: Partial<User>) => {
-    //         if (res) {
-    //           const inscriptionSuccess: InscriptionSuccess = {
-    //             succes: 'Inscription réussie',
-    //             name: this.inscriptionForm.value.firstName,
-    //             email: this.inscriptionForm.value.email,
-    //           };
-    //           this.successService.setInscriptionData(inscriptionSuccess);
-    //           this.router.navigate(['/connexion']);
-    //         }
-    //       })
-    //     )
-    //     .subscribe();
-    // }
+    this.inscriptionForm.markAllAsTouched();
+    if (this.inscriptionForm.valid) {
+      this.chargementEnCours = true;
+      this.userService
+        .createUser(this.inscriptionForm.value)
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            this.inscriptionError = error.error;
+            this.chargementEnCours = false;
+            return EMPTY;
+          }),
+          tap((res: Partial<User>) => {
+            if (res) {
+              const inscriptionSuccess: InscriptionSuccess = {
+                succes: 'Inscription réussie',
+                name: this.inscriptionForm.value.firstName,
+                email: this.inscriptionForm.value.email,
+              };
+              this.successService.setInscriptionData(inscriptionSuccess);
+              this.chargementEnCours = false;
+              this.switchLogin()
+            }
+          })
+        )
+        .subscribe();
+    }
   }
 
-  // public getUsers$(): Observable<User[]> {
-  //   return this.userService.getUsers();
-  // }
+  public getUsers$(): Observable<User[]> {
+    return this.userService.getUsers();
+  }
 
   closeModal() {
     this.close.emit();
