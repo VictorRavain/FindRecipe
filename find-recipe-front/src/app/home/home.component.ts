@@ -68,7 +68,6 @@ export class HomeComponent {
   loadRecipe(): void {
     this.RecipeService.getRecipes().subscribe((data: any[]) => {
       this.recipes = data;
-      console.log(this.recipes);
     });
   }
 

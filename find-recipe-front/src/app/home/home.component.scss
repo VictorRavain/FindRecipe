@@ -1,13 +1,12 @@
 .header-container {
   background: var(--color-background-primary);
-  position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
-  padding: 64px 2.4rem 0px;
+  padding: 80px 2.4rem 0px;
 
   &.active {
-    padding: 72px 2.4rem 0px;
+    padding: 88px 2.4rem 0px;
   }
 
   .main-div {
@@ -153,9 +152,8 @@
 
   .ingredient-grid {
     margin: 0px auto;
-    padding: 2.4rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
     gap: 1rem;
 
     .ingredient-card {
@@ -163,23 +161,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #ffffff;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, box-shadow 0.2s;
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      }
 
       .ingredient-image {
         width: 80px;
         height: 80px;
         object-fit: contain;
         margin-bottom: 0.5rem;
+        border: 1px solid #dee2e6;
+        background-color: #ffffff;
+        padding: 0.5rem;
+        border-radius: 50%;
       }
 
       .ingredient-details {
@@ -194,13 +185,13 @@
 
       .delete-button {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #ff6b6b;
-        border: none;
-        color: #ffffff;
+        top: -5px;
+        right: 5px;
+        background: var(--color-foreground-tertiary);
+        color: var(--color-foreground-primary);
         font-weight: bold;
         border-radius: 50%;
+        border: none;
         width: 20px;
         height: 20px;
         display: flex;
@@ -211,14 +202,15 @@
         transition: background-color 0.2s, opacity 0.2s;
 
         &:hover {
-          background: #e63946;
+          background: var(--color-brand-primary);
+          color: var(--color-foreground-tertiary);
         }
       }
     }
   }
 
   .recipes-section {
-    padding: 20px;
+    padding: 2.5rem 1rem;
   
     h2 {
       font-size: 27px;
@@ -233,52 +225,65 @@
     }
   
     .recipe-card {
-      background-color: var(--color-background-secondary);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: #1E1E1E;
-      align-items: center;
-  
-      &:hover {
-        color: rgb(244, 72, 49);
-      }
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
 
       .recipe-image {
-        width: 178px;
-        height: 178px;
+        width: 144px;
+        position: absolute;
+        height: 144px;
         object-fit: contain;
-        margin-bottom: 0.5rem;
+        filter: drop-shadow(rgba(30, 30, 30, 0.6) 0.2rem 0.4rem 2px);
       }
   
-      p {
-        font-size: 16px;
-        margin-bottom: 40px;
-      }
-
-      .inner-div {
-
+      .card-div {
+        background-color: var(--color-background-secondary);
         display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+        margin-top: 4.5rem;
+        border-radius: 20px;
         width: 100%;
-        flex-direction: row;
-        align-content: center;
-        justify-content: space-around;
+        padding-top: 6rem;
+        color: #1E1E1E;
         align-items: center;
-        padding: 0px 8px 12px;
 
-        .view-recipe-btn {
-          display: inline-block;
-          border: 0.1rem solid var(--color-foreground-secondary);
-          padding: 5px 12px;
-          color: #1E1E1E;
-          border-radius: 9999px;
-          text-decoration: none;
-          font-size: 12px;
-          text-align: center;
-          transition: background 0.2s;
+        &:hover {
+          color: rgb(244, 72, 49);
+        }
     
-          &:hover {
-            background: #005f99;
+        p {
+          font-size: 16px;
+          margin-bottom: 30px;
+        }
+
+        .inner-div {
+
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          align-content: center;
+          justify-content: space-around;
+          align-items: center;
+          padding: 0px 8px 12px;
+
+          .view-recipe-btn {
+            display: inline-block;
+            border: 0.1rem solid var(--color-foreground-secondary);
+            padding: 5px 12px;
+            color: #1E1E1E;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            transition: background 0.2s;
+      
+            &:hover {
+              background: #005f99;
+            }
           }
         }
       }
