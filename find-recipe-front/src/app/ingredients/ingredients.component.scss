@@ -1,7 +1,6 @@
 .ingredients-container {
 display: flex;
 flex-direction: column;
-gap: 2rem;
 padding: 0.6rem;
 margin: 72px auto;
 max-width: 1024px;
@@ -10,12 +9,26 @@ max-width: 1024px;
     margin: 84px auto;
 }
 
+.add-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5rem;
+
+  .add-button{
+    width: 20%;
+    background-color: var(--color-brand-primary);
+    font-family: 'Viksjow', sans-serif;
+    font-weight: 500;
+  }
+}
+
 
 .loading,
 .no-ingredients {
     text-align: center;
     font-size: 1.2rem;
     color: #6c757d;
+    padding: 5rem;
 }
 
 // Category section
@@ -90,7 +103,7 @@ max-width: 1024px;
     .ingredient-image {
         width: 100px;
         height: 100px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 50%;
         margin-bottom: 1rem;
         border: 2px solid #ced4da;

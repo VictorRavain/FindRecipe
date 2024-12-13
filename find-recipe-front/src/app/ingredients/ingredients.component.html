@@ -1,4 +1,10 @@
 <main class="ingredients-container" [class.active]="isMobileView">
+
+  <div class="add-div">
+    <button (click)="AddIngredientComponent.openModal()" class="add-button">Ajouter un ingredient</button>
+    <app-add-ingredient #AddIngredientComponent></app-add-ingredient>
+  </div>
+  
   <div *ngIf="isLoading" class="loading">
     <p>Loading ingredients...</p>
   </div>
@@ -22,13 +28,13 @@
               ✕
             </button>
             <img
-              [src]="'assets/ingredient/' + ingredient.id + '.png'"
+              [src]="ingredient.image"
               alt="{{ ingredient.name }}"
               class="ingredient-image"
             />
             <div class="ingredient-details">
               <h3 class="ingredient-name">{{ ingredient.name }}</h3>
-              <p class="ingredient-quantity">Quantity: {{ ingredient.quantity }}</p>
+              <p class="ingredient-quantity">Quantité : {{ ingredient.quantite + ingredient.unite}}</p>
             </div>
           </div>
         </div>

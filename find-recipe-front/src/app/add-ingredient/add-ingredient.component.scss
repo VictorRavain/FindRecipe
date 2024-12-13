@@ -1,0 +1,180 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+    /* Modal Content */
+    .modal-content {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .header-div {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+
+        .scan-button {
+            background-color: #4caf50;
+            color: white;
+        
+            &:hover {
+            background-color: #45a049;
+            }
+        }
+    }
+  
+    .scanned-info {
+        margin-top: 20px;
+
+        .error-message {
+        color: red;
+        font-weight: bold;
+        }
+
+        .product-details {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 500px;
+
+        p {
+            margin: 10px 0;
+        }
+
+        .product-image {
+            margin-top: 15px;
+
+            img {
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            }
+        }
+        }
+    }
+
+    // .modal-content form {
+    //     border: solid rgb(68, 68, 68) 1px;
+    //     border-radius: 5px;
+    //     padding: 5px;
+    //     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    // }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+
+    .div-form {
+        display: flex;
+        padding: 5px;
+
+        .search-btn {
+          border-radius: 0;
+        }
+    }
+
+    .ingredient-list {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  
+      li {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+  
+        &:hover {
+          background: #f5f5f5;
+        }
+  
+        img {
+          width: 40px;
+          height: 40px;
+          margin-right: 10px;
+          border-radius: 5px;
+        }
+  
+        span {
+          font-size: 16px;
+          color: #333;
+        }
+      }
+    }
+  }
+  
+  .form-group label {
+    margin: 5px;
+  }
+
+
+  
+  .form-group input {
+    width: 100%;
+    border-radius: 8px 0px 0px 8px;
+    font-size: 1em;
+  }
+  .form-group select {
+    padding-inline: 16px;
+    width: 40%;
+    border-radius: 0px 8px 8px 0px;
+    border-color: rgb(239, 239, 239);
+    font-size: 0.9rem;
+  }
+  
+  /* Buttons */
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn-primary {
+    background-color: var(--color-brand-primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #aaa;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

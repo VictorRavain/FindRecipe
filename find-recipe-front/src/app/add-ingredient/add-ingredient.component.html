@@ -1,0 +1,104 @@
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-content">
+        <div class="header-div">
+            <h2>Ajouter un nouvel ingrédient</h2>
+            <button class="scan-button" (click)="startScan()">Scanner un produit (WIP)</button>
+        </div>
+
+        <!-- Scanned Data Section -->
+        <div *ngIf="scannedData" class="scanned-info">
+          <h2>Product Information</h2>
+      
+          <!-- Show Error Message if Product is Not Found -->
+          <div *ngIf="scannedData.error" class="error-message">
+            <p>Product not found. Please try another barcode.</p>
+          </div>
+      
+          <!-- Show Product Details -->
+          <div *ngIf="!scannedData.error" class="product-details">
+            <p><strong>Name:</strong> {{ scannedData.product_name || 'N/A' }}</p>
+            <p><strong>Brand:</strong> {{ scannedData.brands || 'N/A' }}</p>
+            <p><strong>Ingredients:</strong> {{ scannedData.ingredients_text || 'N/A' }}</p>
+            <p><strong>Nutritional Info:</strong> {{ scannedData.nutrition_grade_fr || 'N/A' }}</p>
+            <p><strong>Allergens:</strong> {{ scannedData.allergens_tags?.join(', ') || 'None' }}</p>
+      
+            <!-- Product Image -->
+            <div *ngIf="scannedData.image_url" class="product-image">
+              <img [src]="scannedData.image_url" alt="Product Image" />
+            </div>
+          </div>
+        </div>
+
+
+      <form (submit)="onSubmit()">
+        <!-- Ingredient Name -->
+        <div class="form-group">
+          <label for="ingredientName">Nom</label>
+          <div class="div-form">
+            <input
+                type="text"
+                id="ingredientName"
+                [(ngModel)]="searchQuery"
+                (input)="fetchIngredients()"
+                name="name"
+                placeholder="Nom de l'ingrédient"
+                required
+            />
+            <select
+                id="ingredientType"
+                [(ngModel)]="newIngredient.type"
+                name="type"
+                required
+            >
+                <option value="" disabled>Type</option>
+                <option value="Sec">Sec</option>
+                <option value="Frais">Frais</option>
+                <option value="Conserve">Conserve</option>
+            </select>
+          </div>
+          <ul *ngIf="queryResults!=''" class="ingredient-list">
+            <li
+              *ngFor="let ingredient of queryResults"
+              (click)="selectIngredient(ingredient)"
+            >
+              <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" alt="{{ ingredient.name }}" />
+              <span>{{ ingredient.name }}</span>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Ingredient Quantity -->
+        <div class="form-group">
+          <label for="ingredientQuantity">Quantité</label>
+            <div class="div-form">
+            <input
+                type="number"
+                id="ingredientQuantity"
+                [(ngModel)]="newIngredient.quantite"
+                name="quantity"
+                placeholder="Enter quantity"
+                required
+            />
+            <select
+                id="ingredientUnit"
+                [(ngModel)]="newIngredient.unite"
+                name="unit"
+                required
+                >
+                <option value="" disabled>Unité</option>
+                <option value="g">g</option>
+                <option value="ml">ml</option>
+                <option value="pièces">pièces</option>
+                </select>
+            </div>
+        </div>
+  
+        <!-- Buttons -->
+        <div class="modal-actions">
+          <button type="submit" class="btn-primary">Confirmer</button>
+          <button type="button" class="btn-secondary" (click)="closeModal()">Annuler</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

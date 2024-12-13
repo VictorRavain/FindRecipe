@@ -1,18 +1,20 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { IngredientsService } from '../services/ingredient.service';
+import { AddIngredientComponent } from '../add-ingredient/add-ingredient.component';
 
 @Component({
   standalone: true,
   selector: 'app-ingredients',
   templateUrl: './ingredients.component.html',
   styleUrls: ['./ingredients.component.scss'],
-  imports: [ NgFor, NgIf ]
+  imports: [ NgFor, NgIf, AddIngredientComponent ]
 })
 export class IngredientsComponent implements OnInit {
   isMobileView: boolean = false;  // Controls when to show the burger icon
-  ingredients: any[] = []; // To hold the list of ingredients
   isLoading: boolean = true; // To show loading state
+
+  ingredients: any[] = []; // To hold the list of ingredients
 
   constructor(
     private IngredientsService: IngredientsService,
@@ -60,6 +62,18 @@ export class IngredientsComponent implements OnInit {
       next: () => console.log(`${ingredient.name} deleted successfully`),
       error: (err: any) => console.error('Error deleting ingredient:', err),
     });
+  }
+
+  addIngredient(ingredient: any): void {
+    this.IngredientsService.addIngredient(ingredient).subscribe(
+      (createdIngredient) => {
+        // Append the new ingredient to the list
+        this.ingredients.push(createdIngredient);
+      },
+      (error) => {
+        console.error('Failed to add ingredient:', error);
+      }
+    );
   }
   
 
