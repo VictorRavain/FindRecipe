@@ -26,148 +26,161 @@
             "id": 1,
             "name": "Farine",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 2,
             "name": "Oeuf",
             "type": "Frais",
-            "quantité": 6,
-            "unité": "pièces"
+            "quantite": 6,
+            "unite": "pièces",
+            "image": "name.jpg"
         },
         {
             "id": 3,
             "name": "Lait",
             "type": "Frais",
-            "quantité": 2000,
-            "unité": "ml"
+            "quantite": 2000,
+            "unite": "ml",
+            "image": "name.jpg"
         },
         {
             "id": 4,
             "name": "Sucre",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 5,
             "name": "Beurre",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 6,
             "name": "Sel",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "pincée"
+            "quantite": 1000,
+            "unite": "pincée",
+            "image": "name.jpg"
         },
         {
             "id": 7,
             "name": "Tomates",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "pièces"
+            "quantite": 1000,
+            "unite": "pièces",
+            "image": "name.jpg"
         },
         {
             "id": 8,
             "name": "Poulet",
             "type": "Frais",
-            "quantité": 2,
-            "unité": "pièces"
+            "quantite": 2,
+            "unite": "pièces",
+            "image": "name.jpg"
         },
         {
             "id": 9,
             "name": "Riz",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 10,
             "name": "Carottes",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 11,
             "name": "Pomme de terre",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 12,
             "name": "Oignon",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "pièces"
+            "quantite": 1000,
+            "unite": "pièces",
+            "image": "name.jpg"
         },
         {
             "id": 13,
             "name": "Poivrons",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "pièces"
+            "quantite": 1000,
+            "unite": "pièces",
+            "image": "name.jpg"
         },
         {
             "id": 14,
             "name": "Viande hachée",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 15,
             "name": "Huile d'olive",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "ml"
+            "quantite": 1000,
+            "unite": "ml",
+            "image": "name.jpg"
         },
         {
             "id": 16,
             "name": "Fromage",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 17,
             "name": "Pâtes",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 18,
             "name": "Thon",
             "type": "Conserve",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 19,
             "name": "Chocolat",
             "type": "Sec",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "g",
+            "image": "name.jpg"
         },
         {
             "id": 20,
             "name": "Crème fraîche",
             "type": "Frais",
-            "quantité": 1000,
-            "unité": "ml"
-        },
-        {
-            "id": 21,
-            "name": "Julie",
-            "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
+            "quantite": 1000,
+            "unite": "ml",
+            "image": "name.jpg"
         }
     ],
     "recettes": [
@@ -186,26 +199,30 @@
                 {
                     "id": 1,
                     "name": "Farine",
-                    "quantité": 200,
-                    "unité": "g"
+                    "quantite": 200,
+                    "unite": "g",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 2,
                     "name": "Oeuf",
-                    "quantité": 3,
-                    "unité": "pièces"
+                    "quantite": 3,
+                    "unite": "pièces",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 3,
                     "name": "Lait",
-                    "quantité": 500,
-                    "unité": "ml"
+                    "quantite": 500,
+                    "unite": "ml",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 4,
                     "name": "Sucre",
-                    "quantité": 50,
-                    "unité": "g"
+                    "quantite": 50,
+                    "unite": "g",
+                    "image": "name.jpg"
                 }
             ]
         },
@@ -224,20 +241,23 @@
                 {
                     "id": 2,
                     "name": "Oeuf",
-                    "quantité": 4,
-                    "unité": "pièces"
+                    "quantite": 4,
+                    "unite": "pièces",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 5,
                     "name": "Beurre",
-                    "quantité": 20,
-                    "unité": "g"
+                    "quantite": 20,
+                    "unite": "g",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 6,
                     "name": "Sel",
-                    "quantité": 1,
-                    "unité": "pincée"
+                    "quantite": 1,
+                    "unite": "pincée",
+                    "image": "name.jpg"
                 }
             ]
         },
@@ -256,20 +276,23 @@
                 {
                     "id": 8,
                     "name": "Poulet",
-                    "quantité": 1,
-                    "unité": "pièces"
+                    "quantite": 1,
+                    "unite": "pièces",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 6,
                     "name": "Sel",
-                    "quantité": 1,
-                    "unité": "pincée"
+                    "quantite": 1,
+                    "unite": "pincée",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 12,
                     "name": "Oignon",
-                    "quantité": 2,
-                    "unité": "pièces"
+                    "quantite": 2,
+                    "unite": "pièces",
+                    "image": "name.jpg"
                 }
             ]
         },
@@ -288,20 +311,23 @@
                 {
                     "id": 9,
                     "name": "Riz",
-                    "quantité": 200,
-                    "unité": "g"
+                    "quantite": 200,
+                    "unite": "g",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 7,
                     "name": "Tomates",
-                    "quantité": 3,
-                    "unité": "pièces"
+                    "quantite": 3,
+                    "unite": "pièces",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 18,
                     "name": "Thon",
-                    "quantité": 1,
-                    "unité": "g"
+                    "quantite": 1,
+                    "unite": "g",
+                    "image": "name.jpg"
                 }
             ]
         },
@@ -320,20 +346,23 @@
                 {
                     "id": 17,
                     "name": "Pâtes",
-                    "quantité": 300,
-                    "unité": "g"
+                    "quantite": 300,
+                    "unite": "g",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 16,
                     "name": "Fromage",
-                    "quantité": 100,
-                    "unité": "g"
+                    "quantite": 100,
+                    "unite": "g",
+                    "image": "name.jpg"
                 },
                 {
                     "id": 20,
                     "name": "Crème fraîche",
-                    "quantité": 200,
-                    "unité": "ml"
+                    "quantite": 200,
+                    "unite": "ml",
+                    "image": "name.jpg"
                 }
             ]
         }

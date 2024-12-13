@@ -35,7 +35,7 @@ export class SeedService {
       // Map ingredients for the recipe
       const recipeIngredients = recipe.ingredients.map((ingredient) => {
         const matchedIngredient = ingredients.find((ing) => ing.id === ingredient.id);
-        return { ...matchedIngredient, quantité: ingredient.quantité, unité: ingredient.unité };
+        return { ...matchedIngredient, quantite: ingredient.quantite, unite: ingredient.unite };
       });
 
       const recette = this.recetteRepository.create({
