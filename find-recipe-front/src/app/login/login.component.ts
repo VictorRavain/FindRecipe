@@ -61,7 +61,7 @@ export class loginComponent implements OnInit {
         .login(email, password)
         .pipe(
           tap((res) => {
-            this.authService.saveToken(res.token.access_token);
+            this.authService.saveToken(res.token);
             this.chargementEnCours = false;
             this.closeModal();
           }),

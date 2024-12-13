@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne } from 'typeorm';
 import { Recette } from 'src/recettes/recette.entity';
+import { User } from 'src/user/user.entity';
 
 @Entity()
 export class Ingredient {
@@ -13,11 +14,17 @@ export class Ingredient {
   type: string;
 
   @Column('float')
-  quantité: number;
+  quantite: number;
 
   @Column()
-  unité: string;
+  unite: string;
+
+  @Column()
+  image: string;
 
   @ManyToMany(() => Recette, (recette) => recette.ingredients)
   recettes: Recette[];
+
+  @ManyToOne(() => User, (user) => user.ingredients, { onDelete: 'CASCADE' })
+  user: User;
 }

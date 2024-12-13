@@ -1,13 +1,18 @@
-import { Controller, Get, Delete, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Delete, Param, NotFoundException, Post, Body, UseGuards } from '@nestjs/common';
 import { IngredientsService } from './ingredients.service';
+import { AuthGuard } from 'src/auth/auth.guard';
+import { Ingredient } from './ingredient.entity';
+import { Request } from '@nestjs/common';
 
 @Controller('ingredients')
 export class IngredientsController {
   constructor(private readonly ingredientsService: IngredientsService) {}
 
   @Get()
-  findAll() {
-    return this.ingredientsService.findAll();
+  @UseGuards(AuthGuard) // Protect the route with the JWT guard
+  findAll(@Request() req: any) {
+    const userId = req.user.id; 
+    return this.ingredientsService.findAllByUser(userId);
   }
 
   @Delete(':id')
@@ -17,5 +22,12 @@ export class IngredientsController {
       throw new NotFoundException(`Ingredient with ID ${id} not found`);
     }
     return { message: 'Ingredient deleted successfully' };
+  }
+
+  @Post()
+  @UseGuards(AuthGuard) 
+  create(@Request() req: any, @Body() ingredientData: Partial<Ingredient>) {
+    const userId = req.user.id; // Extract userId from authenticated user
+    return this.ingredientsService.create(userId, ingredientData);
   }
 }

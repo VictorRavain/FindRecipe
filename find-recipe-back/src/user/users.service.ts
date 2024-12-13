@@ -13,6 +13,15 @@ export class UsersService {
     private jwtService: JwtService,
   ) {}
 
+  use(req: any, res: any, next: () => void) {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (token) {
+      const decoded = this.jwtService.verify(token);
+      req.user = decoded; // Add the user object to the request
+    }
+    next();
+  }
+
   async create(user: Partial<User>): Promise<User> {
     const existingUser = await this.usersRepository.findOne({
       where: { email: user.email },
