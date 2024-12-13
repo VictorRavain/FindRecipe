@@ -75,7 +75,7 @@
         <div class="ingredient-card" *ngFor="let ingredient of selectedIngredients" >
             <img
                 class="ingredient-image"
-                [src]="'assets/ingredient/' + ingredient.id +  '.png'"
+                [src]="ingredient.image"
                 alt="{{ ingredient.name }}"
             />
             <div class="ingredient-details">
@@ -88,6 +88,11 @@
                 ✕
             </button>
         </div>
+    </div>
+
+    <!-- No ingredient in stocks -->
+    <div *ngIf="ingredients.length === 0" class="no-recipes">
+        <p>Vous n'avez pas d'ingredient dans votre garde manger</p>
     </div>
 
      <!-- Display Recipes -->
