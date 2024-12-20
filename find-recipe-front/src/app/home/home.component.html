@@ -47,9 +47,8 @@
                 [class.active]="isMobileView"
                 [class.active2]="(filteredIngredients.length !== 0)"
                 type="text"
-                placeholder="Search for ingredients..."
-                [(ngModel)]="searchQuery"
-                (input)="filterIngredients()"
+                [placeholder]="placeholder"
+                (input)="onSearchQueryChange($event)"
                 autofocus
                 autocomplete="off"
                 class="search-bar"
@@ -102,11 +101,11 @@
             <div class="recipe-card" *ngFor="let recipe of filteredRecipes">
                 <img
                     class="recipe-image"
-                    [src]="'assets/recipe/' + recipe.id + '.png'"
-                    alt="{{recipe.name}}"
+                    [src]="recipe.image" alt="{{ recipe.title }}" 
+                    alt="{{recipe.title}}"
                 />
                 <div class="card-div">
-                <p>{{ recipe.name }}</p>
+                <p>{{ recipe.title }}</p>
                 <div class="inner-div">
                     <a [routerLink]="['/recipe', recipe.id]" class="view-recipe-btn">Voir la recette</a>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="jow_prod__sc-d1d7fdb0-0 ljwnNe jow_prod__sc-1f31b3ae-0 igHNun jow_prod__sc-77b0e654-3 iaSjal" width="24" height="24" focusable="false" role="img" aria-hidden="true" aria-label="heart-stroke-24" aria-labelledby="heart-stroke-24"><path fill-rule="evenodd" d="M4.49 8.677c-.139 1.062.112 2.379 1.055 3.835 2.358 3.644 4.934 5.92 6.149 6.88.19.15.433.152.623.006 1.239-.953 3.864-3.227 6.121-6.874l.01-.014c.947-1.456 1.2-2.773 1.062-3.834-.138-1.064-.677-1.929-1.418-2.487-1.451-1.093-3.79-1.072-5.506 1.35a.72.72 0 0 1-.589.307.72.72 0 0 1-.588-.308c-1.714-2.42-4.05-2.442-5.5-1.349-.74.558-1.278 1.423-1.418 2.488m7.508-2.751c-2.132-2.347-5.002-2.409-6.95-.94C3.999 5.777 3.244 7 3.05 8.476c-.194 1.48.18 3.156 1.284 4.861 2.47 3.818 5.172 6.21 6.473 7.238a1.92 1.92 0 0 0 2.383.017c1.33-1.022 4.093-3.42 6.473-7.26 1.106-1.703 1.482-3.377 1.29-4.855-.192-1.477-.947-2.7-1.999-3.493-1.948-1.468-4.822-1.406-6.955.94" clip-rule="evenodd"></path></svg>

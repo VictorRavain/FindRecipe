@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { IngredientsService } from '../services/ingredient.service';
 import { RecipeService } from '../services/recette.service';
 import { NgFor, CommonModule } from '@angular/common';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +18,11 @@ import { NgFor, CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   ingredients: any[] = []; // To hold the list of ingredients
-  searchQuery: string = '';
   selectedIngredients: any[] = [];
   filteredIngredients: any[] = [];
+
   recipes: any[] = [];
+  selectedRecipe: any[] = [];
   filteredRecipes: any[] = [];
 
   isMobileView: boolean = false;  // Controls when to show the burger icon
@@ -29,13 +34,23 @@ export class HomeComponent {
   isListDropdownOpen: boolean = false;
   placeholder: string = "Ajoutez un ingrédient";
 
+  private searchSubject: Subject<string> = new Subject<string>();
+
   constructor(
     private IngredientsService: IngredientsService,
-    private RecipeService: RecipeService
+    private RecipeService: RecipeService,
+    private http : HttpClient,
   ) {
     this.checkWindowWidth(); // Check initial window width
     this.loadIngredients();
     this.loadRecipe();
+  }
+
+  ngOnInit(): void {
+    // Subscribe to the searchSubject and debounce API calls
+    this.searchSubject.pipe(debounceTime(500)).subscribe((query) => {
+      this.filterQuery(query);
+    });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -65,29 +80,53 @@ export class HomeComponent {
     });
   }
 
+  // Triggered on every input change
+  onSearchQueryChange(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.searchSubject.next(inputValue);
+  }
+
   loadRecipe(): void {
     this.RecipeService.getRecipes().subscribe((data: any[]) => {
       this.recipes = data;
     });
   }
 
-  filterIngredients(): void {
-    if (this.searchQuery.trim() === '') {
-      this.filteredIngredients = [];
-    } else {
-      this.filteredIngredients = this.ingredients.filter((ingredient) =>
-        ingredient.name.toLowerCase().startsWith(this.searchQuery.toLowerCase())
-      );
+  filterQuery(query: string): void {
+    if(this.selectedOption == 'Ingrédients'){
+      if (query.trim() === '') {
+        this.filteredIngredients = [];
+      } else {
+        this.filteredIngredients = this.ingredients.filter((ingredient) =>
+          ingredient.name.toLowerCase().startsWith(query.toLowerCase())
+        );
+      }
+    }else if(this.selectedOption == 'Recettes'){
+      const apiKey = environment.apiKey;
+      const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=3&sort=popularity&sortDirection=desc&apiKey=${apiKey}`;
+
+      this.http.get(apiUrl).subscribe((response: any) => {
+        this.filteredRecipes = response.results;
+        console.log(response.results);
+      });
     }
   }
 
-  selectIngredient(ingredient: any): void {
-    if (!this.selectedIngredients.find((i) => i.name === ingredient.name)) {
-      this.selectedIngredients.push(ingredient);
+  selectIngredient(results: any): void {
+    if(this.selectedOption == 'Ingrédients'){
+      // If not already in selectedIngredient add it
+      if (!this.selectedIngredients.find((i) => i.name === results.name)) {
+        this.selectedIngredients.push(results);
+      }
+      this.filteredIngredients = [];
+      this.getRecipes();
+    }else if(this.selectedOption == 'Recettes'){
+      if (!this.selectedRecipe.find((i) => i.name === results.name)) {
+        this.selectedRecipe.push(results);
+      }
+      this.filteredIngredients = [];
+      this.getRecipes();
     }
-    this.searchQuery = '';
-    this.filteredIngredients = [];
-    this.getRecipes();
   }
 
   removeIngredient(ingredient: any): void {

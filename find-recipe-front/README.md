@@ -2,14 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
 
-### TODO : 
-Add recipe search with API (by ingredienta and quantity ? and classic search)
-Add recipe to favorite -> add them to database and always display them if you have the ingredient
-Scan food product
-Think what to do with quantity ? type (-> delete type) ?
-Add a page to display the recipe
-Add a button to display all recipe available
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
