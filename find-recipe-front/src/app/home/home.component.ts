@@ -13,11 +13,14 @@ import { NgFor, CommonModule } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  ingredients: any[] = []; // To hold the list of ingredients
   searchQuery: string = '';
+
+  ingredients: any[] = []; // To hold the list of ingredients
   selectedIngredients: any[] = [];
   filteredIngredients: any[] = [];
+
   recipes: any[] = [];
+  selectedRecipes: any[] = [];
   filteredRecipes: any[] = [];
 
   isMobileView: boolean = false;  // Controls when to show the burger icon
@@ -71,13 +74,23 @@ export class HomeComponent {
     });
   }
 
-  filterIngredients(): void {
-    if (this.searchQuery.trim() === '') {
-      this.filteredIngredients = [];
-    } else {
-      this.filteredIngredients = this.ingredients.filter((ingredient) =>
-        ingredient.name.toLowerCase().startsWith(this.searchQuery.toLowerCase())
-      );
+  filterQuery(): void {
+    if(this.selectedOption == 'Ingrédients'){
+      if (this.searchQuery.trim() === '') {
+        this.filteredIngredients = [];
+      } else {
+        this.filteredIngredients = this.ingredients.filter((ingredient) =>
+          ingredient.name.toLowerCase().startsWith(this.searchQuery.toLowerCase())
+        );
+      }
+    }else if(this.selectedOption == 'Recettes'){
+      if (this.searchQuery.trim() === '') {
+        this.filteredRecipes = [];
+      } else {
+        this.filteredRecipes = this.recipes.filter((recipe) =>
+          recipe.name.toLowerCase().startsWith(this.searchQuery.toLowerCase())
+        );
+      }
     }
   }
 

@@ -161,13 +161,6 @@
             "type": "Frais",
             "quantité": 1000,
             "unité": "ml"
-        },
-        {
-            "id": 21,
-            "name": "Julie",
-            "type": "Frais",
-            "quantité": 1000,
-            "unité": "g"
         }
     ],
     "recettes": [
@@ -334,6 +327,160 @@
                     "name": "Crème fraîche",
                     "quantité": 200,
                     "unité": "ml"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Pain perdu",
+            "description": "Un dessert rapide avec du pain rassis",
+            "instructions": "1. Mélanger œufs, lait et sucre. 2. Tremper les tranches de pain. 3. Cuire à la poêle avec un peu de beurre.",
+            "temps_preparation": 5,
+            "temps_cuisson": 5,
+            "categorie": {
+                "id": 1,
+                "name": "Dessert"
+            },
+            "ingredients": [
+                {
+                    "id": 2,
+                    "name": "Oeuf",
+                    "quantité": 2,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 3,
+                    "name": "Lait",
+                    "quantité": 200,
+                    "unité": "ml"
+                },
+                {
+                    "id": 4,
+                    "name": "Sucre",
+                    "quantité": 30,
+                    "unité": "g"
+                },
+                {
+                    "id": 5,
+                    "name": "Beurre",
+                    "quantité": 10,
+                    "unité": "g"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Salade de tomates",
+            "description": "Une salade fraîche et légère",
+            "instructions": "1. Couper les tomates en rondelles. 2. Assaisonner avec huile d'olive, sel et poivre.",
+            "temps_preparation": 5,
+            "temps_cuisson": 0,
+            "categorie": {
+                "id": 5,
+                "name": "Salade"
+            },
+            "ingredients": [
+                {
+                    "id": 7,
+                    "name": "Tomates",
+                    "quantité": 3,
+                    "unité": "pièces"
+                },
+                {
+                    "id": 6,
+                    "name": "Sel",
+                    "quantité": 1,
+                    "unité": "pincée"
+                },
+                {
+                    "id": 15,
+                    "name": "Huile d'olive",
+                    "quantité": 10,
+                    "unité": "ml"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Riz au lait",
+            "description": "Un dessert simple et réconfortant",
+            "instructions": "1. Cuire le riz dans le lait avec le sucre. 2. Servir tiède ou froid.",
+            "temps_preparation": 5,
+            "temps_cuisson": 20,
+            "categorie": {
+                "id": 1,
+                "name": "Dessert"
+            },
+            "ingredients": [
+                {
+                    "id": 9,
+                    "name": "Riz",
+                    "quantité": 100,
+                    "unité": "g"
+                },
+                {
+                    "id": 3,
+                    "name": "Lait",
+                    "quantité": 500,
+                    "unité": "ml"
+                },
+                {
+                    "id": 4,
+                    "name": "Sucre",
+                    "quantité": 50,
+                    "unité": "g"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Pommes sautées",
+            "description": "Pommes de terre dorées et croustillantes",
+            "instructions": "1. Couper les pommes de terre en dés. 2. Faire sauter dans l'huile d'olive avec un peu de sel.",
+            "temps_preparation": 10,
+            "temps_cuisson": 15,
+            "categorie": {
+                "id": 2,
+                "name": "Plat principal"
+            },
+            "ingredients": [
+                {
+                    "id": 11,
+                    "name": "Pomme de terre",
+                    "quantité": 500,
+                    "unité": "g"
+                },
+                {
+                    "id": 15,
+                    "name": "Huile d'olive",
+                    "quantité": 20,
+                    "unité": "ml"
+                },
+                {
+                    "id": 6,
+                    "name": "Sel",
+                    "quantité": 1,
+                    "unité": "pincée"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Sandwich au thon",
+            "description": "Un sandwich simple et nourrissant",
+            "instructions": "1. Mélanger le thon avec un peu de mayonnaise. 2. Garnir du pain avec le mélange.",
+            "temps_preparation": 5,
+            "temps_cuisson": 0,
+            "categorie": {
+                "id": 4,
+                "name": "Petit déjeuner"
+            },
+            "ingredients": [
+                {
+                    "id": 18,
+                    "name": "Thon",
+                    "quantité": 50,
+                    "unité": "g"
                 }
             ]
         }

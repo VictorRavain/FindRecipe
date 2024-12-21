@@ -4,6 +4,11 @@
 $ npm install
 ```
 
+## Reset database 
+
+Because the data are differents between branch, it's needed to reset the table when branch switch
+``psql -U postgres -d findrecipes -c "TRUNCATE TABLE recette, ingredient, categorie RESTART IDENTITY CASCADE;"``
+
 ## Compile and run the project
 
 # lunch SQL database : 
